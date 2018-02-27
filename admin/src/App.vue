@@ -1,8 +1,7 @@
 <template>
   <div id="app">
     <img src="./assets/logo.png">
-    你在逗我吗?
-    第二次逗我?
+    你在逗我吗????
     <router-view/>
   </div>
 </template>
