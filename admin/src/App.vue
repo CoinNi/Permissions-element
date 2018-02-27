@@ -1,11 +1,7 @@
 <template>
   <div id="app">
     <img src="./assets/logo.png">
-<<<<<<< HEAD
     123
-=======
-    你在逗我吗????123456
->>>>>>> c4bc4fc985fd2817349597ebacb54edea7cc3934
     <router-view/>
   </div>
 </template>
