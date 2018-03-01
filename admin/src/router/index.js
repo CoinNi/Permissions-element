@@ -7,7 +7,7 @@ export default new Router({
   routes: [
     {
       path: '',
-      component: _import('demo')
+      component: _import('login/index')
     }
   ]
 })
