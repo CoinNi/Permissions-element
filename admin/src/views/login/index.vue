@@ -1,6 +1,6 @@
 <template>
 <div class="login-container">
-  <el-form :model="login" status-icon :rules="rules" ref="login" class="demo-ruleForm">
+  <el-form :model="login" :rules="rules" ref="login" class="demo-ruleForm">
     <el-form-item prop="user">
       <span class="svg-container svg-container_login">
         <svg-icon icon-class="user" />
@@ -15,7 +15,7 @@
       <span class="show-pwd" @click="showPwd"><svg-icon icon-class="eye" /></span>
     </el-form-item>
     <el-form-item>
-      <el-button type="primary" style="width: 100%" @click.native.prevent="submitForm('login')">提交</el-button>
+      <el-button type="primary" :loading="loading" style="width: 100%" @click.native.prevent="submitForm('login')">提交</el-button>
     </el-form-item>
   </el-form>
 </div>
@@ -39,6 +39,7 @@ export default {
     }
     return {
       pwdType: 'password',
+      loading: false,
       login: {
         pass: '',
         user: ''
@@ -58,7 +59,13 @@ export default {
     submitForm(formName) {
       this.$refs[formName].validate((valid) => {
         if (valid) {
-          alert('submit!')
+          this.loading = true
+          this.$store.dispatch('Login', this.login).then(() => {
+            this.loading = false
+            this.$router.push({ path: '/' })
+          }).catch(() => {
+            this.loading = false
+          })
         } else {
           console.log('error submit!!')
           return false
