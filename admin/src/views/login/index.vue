@@ -5,13 +5,13 @@
       <span class="svg-container svg-container_login">
         <svg-icon icon-class="user" />
       </span>
-      <el-input type="text" v-model="login.user" auto-complete="on" placeholder="请输入用户名" clearable></el-input>
+      <el-input type="text" v-model="login.username" auto-complete="on" placeholder="请输入用户名" clearable></el-input>
     </el-form-item>
     <el-form-item prop="pass">
       <span class="svg-container svg-container_login">
         <svg-icon icon-class="user" />
       </span>
-      <el-input :type="pwdType" v-model="login.pass" auto-complete="on" placeholder="请输入登录密码" clearable @keyup.enter.native="submitForm('login')"></el-input>
+      <el-input :type="pwdType" v-model="login.password" auto-complete="on" placeholder="请输入登录密码" clearable @keyup.enter.native="submitForm('login')"></el-input>
       <span class="show-pwd" @click="showPwd"><svg-icon icon-class="eye" /></span>
     </el-form-item>
     <el-form-item>
@@ -41,8 +41,8 @@ export default {
       pwdType: 'password',
       loading: false,
       login: {
-        pass: '',
-        user: ''
+        password: '',
+        username: ''
       },
       rules: {
         pass: [
